@@ -129,6 +129,7 @@ fetch(url) // Call the fetch function passing the url of the API as a parameter
 .then(function() {
     // Your code for handling the data you get from the API
     console.log ("200: Success.  ES6 Method");
+    console.log (url);
 })
 // Retrieve its body as ReadableStream
 .then(url => url.body)
