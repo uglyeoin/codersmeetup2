@@ -129,22 +129,39 @@ fetch(url) // Call the fetch function passing the url of the API as a parameter
 .then(function() {
     // Your code for handling the data you get from the API
     console.log ("200: Success.  ES6 Method");
-
-    for (let i = 0; i < url.length; i++) {
-        row = table.insertRow();
-        cell = row.insertCell();
-        cell.textContent = response[i].name.first;
-        cell.textContent = response[i].name.last;
-        cell = row.insertCell();
-        cell.textContent = response[i].picture;
-        cell = row.insertCell();
-        cell.textContent = response[i].company;
-    }
 })
-.catch(function() {
-    // This is where you run code if the server returns any errors
-    console.log ("There was a connection error of some sort");
-});
+// Retrieve its body as ReadableStream
+.then(response => response.body)
+.then(body => {
+const reader = body.getReader();
+
+return new ReadableStream({
+    start(controller) {
+      return pump();
+
+      function pump() {
+        return reader.read().then(({ done, value }) => {
+          // When no more data needs to be consumed, close the stream
+          if (done) {
+            controller.close();
+            return;
+          }
+
+          // Enqueue the next data chunk into our target stream
+          controller.enqueue(value);
+          return pump();
+        });
+      }
+    }
+  })
+})
+.then(stream => new Response(stream))
+.then(response => response.blob())
+.then(blob => URL.createObjectURL(blob))
+.then(url => console.log(image.src = url))
+.then(blob => age.createObjectAge(blob))
+.then(age => console.log(age = age))
+.catch(err => console.error(err));
 </script>
 
 
