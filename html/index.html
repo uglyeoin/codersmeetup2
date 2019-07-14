@@ -131,7 +131,7 @@ fetch(url) // Call the fetch function passing the url of the API as a parameter
     console.log ("200: Success.  ES6 Method");
 })
 // Retrieve its body as ReadableStream
-.then(response => response.body)
+.then(url => url.body)
 .then(body => {
 const reader = body.getReader();
 
@@ -155,8 +155,8 @@ return new ReadableStream({
     }
   })
 })
-.then(stream => new Response(stream))
-.then(response => response.blob())
+.then(stream => new url(stream))
+.then(url => url.blob())
 .then(blob => URL.createObjectURL(blob))
 .then(url => console.log(image.src = url))
 .then(blob => age.createObjectAge(blob))
