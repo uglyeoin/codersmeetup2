@@ -122,26 +122,17 @@
 <div class="medium-8 columns">
 <!-- My jSON will go here-->
 <script>
-var request = new XMLHttpRequest();
-request.open('GET', 'https://codersuk-test.s3-eu-west-1.amazonaws.com/data.json', true);
+var url = 'https://codersuk-test.s3-eu-west-1.amazonaws.com/data.json';
 
-request.onload = function() {
-  if (request.status >= 200 && request.status < 400) {
-    // Success!
+fetch(url) // Call the fetch function passing the url of the API as a parameter
+.then(function() {
+    // Your code for handling the data you get from the API
     console.log ("200: Success");
-    var data = JSON.parse(request.responseText);
-  } else {
-    // We reached our target server, but it returned an error
-    console.log ("We reached our target server, but it returned an error");
-  }
-};
-
-request.onerror = function() {
-  // There was a connection error of some sort
-  console.log ("There was a connection error of some sort");
-};
-
-request.send();
+})
+.catch(function() {
+    // This is where you run code if the server returns any errors
+    console.log ("There was a connection error of some sort");
+});
 </script>
 
 
