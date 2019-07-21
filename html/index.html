@@ -122,53 +122,7 @@
 <div class="medium-8 columns">
 <!-- My jSON will go here-->
 <h2>The Json</h2>
-<script>
-var url = "https://codersuk-test.s3-eu-west-1.amazonaws.com/data.json";
 
-
-fetch(url) // Call the fetch function passing the url of the API as a parameter
-.then(function() {
-    // Your code for handling the data you get from the API
-    console.log ("200: Success.  ES6 Method");
-    console.log (url);
-    console.log(typeof(url));
-})
-// .then(alert(url.company));
-// Retrieve its body as ReadableStream
-/*
-.then(url => url.body)
-.then(body => {
-const reader = body.getReader();
-
-return new ReadableStream({
-    start(controller) {
-      return pump();
-
-      function pump() {
-        return reader.read().then(({ done, value }) => {
-          // When no more data needs to be consumed, close the stream
-          if (done) {
-            controller.close();
-            return;
-          }
-
-          // Enqueue the next data chunk into our target stream
-          controller.enqueue(value);
-          return pump();
-        });
-      }
-    }
-  })
-})
-.then(stream => new url(stream))
-.then(url => url.blob())
-.then(blob => URL.createObjectURL(blob))
-.then(url => console.log(image.src = url))
-.then(blob => age.createObjectAge(blob))
-.then(age => console.log(age = age))
-.catch(err => console.error(err));
-*/
-</script>
 
 
 <p><img src="https://placehold.it/900x450&text=Promoted Article" alt="main article image"></p>
