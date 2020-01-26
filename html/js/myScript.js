@@ -20,7 +20,8 @@ window.fetch(jsonURL)
         return response.json();
     }).then(function(json){
         console.log(json);
-        console.log(json[0].company);
+        console.log(json[0].product_name);
+        console.log(json[0].supplier);
     }).then(function(json){
         for (i = 0; i < json[0].length; i++) {
             x += json[0][i];
