@@ -1,5 +1,6 @@
 // JSON
-var jsonURL     = "https://codersuk-test.s3-eu-west-1.amazonaws.com/data.json";
+// var jsonURL     = "https://codersuk-test.s3-eu-west-1.amazonaws.com/data.json";
+var jsonURL     = "https://github.com/uglyeoin/codersmeetup2/blob/master/html/js/data.json";
 var jsonArray   = window.fetch(jsonURL);
 
 // API Amazon Lambda
